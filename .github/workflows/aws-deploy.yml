@@ -26,8 +26,8 @@ jobs:
           file: "bdyment-portfolio-front.zip"
           target: "bdyment-portfolio-front.zip"
           token: ${{ secrets.RELEASE_DOWNLOADER_TOKEN }}
-      - name: Unzip frontend zip file
-        run: unzip front-build.zip -d front
+      - name: Unzip bdyment-portfolio-front zip file
+        run: unzip bdyment-portfolio-front.zip -d front
 
       - name: Setup NodeJS 20
         uses: actions/setup-node@v3
