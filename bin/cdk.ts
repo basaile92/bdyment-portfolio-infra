@@ -20,6 +20,7 @@ const apiStack = new ApiStack(app, "BdymentPortfolioApiStack", {
         region: process.env.CDK_DEFAULT_REGION
     }
 });
+/*
 const cloudFrontStack = new CloudFrontStack(app, "CloudFrontStack", domainName,{
     env: {
         account: process.env.CDK_DEFAULT_ACCOUNT,
@@ -29,4 +30,5 @@ const cloudFrontStack = new CloudFrontStack(app, "CloudFrontStack", domainName,{
     api: apiStack.api,
     cloudfrontOriginAccessIdentity: siteBucketS3Stack.cloudfrontOriginAccessIdentity,
 });
+ */
 app.synth();

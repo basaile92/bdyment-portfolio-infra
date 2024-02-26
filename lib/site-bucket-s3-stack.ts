@@ -25,7 +25,7 @@ export class SiteBucketS3Stack extends cdk.Stack {
                 this,
                 "BdymentPortfolioCloudfrontOriginAccessIdentity"
             );
-
+/*
         siteBucket.addToResourcePolicy(
             new aws_iam.PolicyStatement({
                 actions: ["s3:GetObject"],
@@ -38,7 +38,7 @@ export class SiteBucketS3Stack extends cdk.Stack {
             })
         );
 
-
+*/
         this.bucketAssets = siteBucket;
         this.cloudfrontOriginAccessIdentity = cloudfrontOriginAccessIdentity;
     }
