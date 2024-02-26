@@ -19,6 +19,12 @@ jobs:
           token: ${{ secrets.RELEASE_DOWNLOADER_TOKEN }}
       - name: Unzip bdyment-portfolio-back zip file
         run: unzip bdyment-portfolio-back.zip -d lambda
+      - name: Display
+        run: ls
+      - name: Display
+        run: ls lambda
+
+
       - name: Download frontend zip file
         uses: dsaltares/fetch-gh-release-asset@master
         with:
