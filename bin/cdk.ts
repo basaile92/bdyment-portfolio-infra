@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
 import { ApiStack } from '../lib/api-stack';
 import {SiteBucketS3Stack} from "../lib/site-bucket-s3-stack";
@@ -20,7 +21,6 @@ const apiStack = new ApiStack(app, "BdymentPortfolioApiStack", {
         region: process.env.CDK_DEFAULT_REGION
     }
 });
-/*
 const cloudFrontStack = new CloudFrontStack(app, "CloudFrontStack", domainName,{
     env: {
         account: process.env.CDK_DEFAULT_ACCOUNT,
@@ -30,5 +30,4 @@ const cloudFrontStack = new CloudFrontStack(app, "CloudFrontStack", domainName,{
     api: apiStack.api,
     cloudfrontOriginAccessIdentity: siteBucketS3Stack.cloudfrontOriginAccessIdentity,
 });
- */
 app.synth();

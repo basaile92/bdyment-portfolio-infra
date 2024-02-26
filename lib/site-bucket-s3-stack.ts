@@ -10,24 +10,22 @@ export class SiteBucketS3Stack extends cdk.Stack {
         super(scope, id, props);
         const siteBucket = new aws_s3.Bucket(this, "BdymentPortfolioFrontBucket", {
             bucketName: "bdyment-portfolio-front-bucket",
-         //   websiteIndexDocument: "index.html",
+            websiteIndexDocument: "index.html",
             publicReadAccess: true,
             removalPolicy: RemovalPolicy.DESTROY,
         });
-
-        /*
 
         new aws_s3_deployment.BucketDeployment(this, "BdymentPortfolioFrontDeployment", {
             sources: [aws_s3_deployment.Source.asset("./front/build")],
             destinationBucket: siteBucket,
         });
 
-
         const cloudfrontOriginAccessIdentity =
             new aws_cloudfront.OriginAccessIdentity(
                 this,
                 "BdymentPortfolioCloudfrontOriginAccessIdentity"
             );
+
         siteBucket.addToResourcePolicy(
             new aws_iam.PolicyStatement({
                 actions: ["s3:GetObject"],
@@ -40,8 +38,8 @@ export class SiteBucketS3Stack extends cdk.Stack {
             })
         );
 
-*/
+
         this.bucketAssets = siteBucket;
-        //this.cloudfrontOriginAccessIdentity = cloudfrontOriginAccessIdentity;
+        this.cloudfrontOriginAccessIdentity = cloudfrontOriginAccessIdentity;
     }
 }
