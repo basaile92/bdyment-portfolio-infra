@@ -12,7 +12,7 @@ export class SiteBucketS3Stack extends cdk.Stack {
         // Créer un bucket public et entrer l'ARN en dessous (policy publique)
         const siteBucket = aws_s3.Bucket.fromBucketArn(this, "BdymentPortfolioFrontBucket", 'arn:aws:s3:::bdyment-portfolio-front-bucket')
         new aws_s3_deployment.BucketDeployment(this, "BdymentPortfolioFrontDeployment", {
-            sources: [aws_s3_deployment.Source.asset("./front/build"), aws_s3_deployment.Source.asset("./asset/cv.pdf")],
+            sources: [aws_s3_deployment.Source.asset("./front/build"), aws_s3_deployment.Source.asset("./asset")],
             destinationBucket: siteBucket,
         });
 
