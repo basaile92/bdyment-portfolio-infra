@@ -8,13 +8,7 @@ export class SiteBucketS3Stack extends cdk.Stack {
 
     constructor(scope: Construct, id: string, props?: cdk.StackProps) {
         super(scope, id, props);
-        const siteBucket = new aws_s3.Bucket(this, "BdymentPortfolioFrontBucket", {
-            bucketName: "bdyment-portfolio-front-bucket",
-            websiteIndexDocument: "index.html",
-            publicReadAccess: true,
-            removalPolicy: RemovalPolicy.DESTROY,
-        });
-
+        const siteBucket = aws_s3.Bucket.fromBucketArn(this, "BdymentPortfolioFrontBucket", 'arn:aws:s3:::bdyment-portfolio-front-bucket')
         new aws_s3_deployment.BucketDeployment(this, "BdymentPortfolioFrontDeployment", {
             sources: [aws_s3_deployment.Source.asset("./front/build")],
             destinationBucket: siteBucket,
