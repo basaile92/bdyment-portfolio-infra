@@ -36,7 +36,7 @@ export class CloudFrontStack extends cdk.Stack {
                 securityHeadersBehavior: {
                     contentSecurityPolicy: {
                         override: true,
-                        contentSecurityPolicy: `connect-src 'self' https://${domainName} 'img-src' https://www.googletagmanager.com ; default-src 'self' 'inline script' ;`,
+                        contentSecurityPolicy: `connect-src 'self' https://${domainName}; default-src 'self' 'inline script' 'img-src' https://www.googletagmanager.com ;`,
                     },
                     strictTransportSecurity: {
                         override: true,
