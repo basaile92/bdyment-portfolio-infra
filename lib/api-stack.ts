@@ -9,7 +9,7 @@ export class ApiStack extends Stack {
 
         const graphqlLambda = new aws_lambda.Function(this, "BdymentPortfolioLambda", {
             code: aws_lambda.Code.fromAsset(path.join(__dirname, "../lambda")),
-            handler: "lambda.handler",
+            handler: "lambda-handler.handler",
             runtime: aws_lambda.Runtime.NODEJS_20_X,
         });
 
