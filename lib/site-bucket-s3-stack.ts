@@ -35,6 +35,5 @@ export class SiteBucketS3Stack extends cdk.Stack {
 
 
         this.bucketAssets = siteBucket;
-        this.cloudfrontOriginAccessIdentity = cloudfrontOriginAccessIdentity;
     }
 }
