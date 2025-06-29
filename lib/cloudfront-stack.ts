@@ -13,7 +13,6 @@ type CloudFrontStackProps = cdk.StackProps & {
 
     api: aws_apigateway.LambdaRestApi;
     bucketAssets: aws_s3.IBucket;
-    cloudfrontOriginAccessIdentity: aws_cloudfront.OriginAccessIdentity;
 
 };
 
