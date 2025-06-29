@@ -83,9 +83,7 @@ export class CloudFrontStack extends cdk.Stack {
                 domainNames: [domainName],
                 defaultRootObject: "index.html",
                 defaultBehavior: {
-                    origin: new cdk.aws_cloudfront_origins.S3Origin(props.bucketAssets, {
-                        originAccessIdentity: props.cloudfrontOriginAccessIdentity,
-                    }),
+                    origin: new cdk.aws_cloudfront_origins.S3StaticWebsiteOrigin(props.bucketAssets),
                     viewerProtocolPolicy:
                     aws_cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
                     responseHeadersPolicy: responseHeaderPolicy,
