@@ -4,7 +4,6 @@ import {Construct} from 'constructs';
 
 export class SiteBucketS3Stack extends cdk.Stack {
     bucketAssets: cdk.aws_s3.IBucket;
-    cloudfrontOriginAccessIdentity: aws_cloudfront.OriginAccessIdentity;
 
     constructor(scope: Construct, id: string, props?: cdk.StackProps) {
         super(scope, id, props);
@@ -36,6 +35,5 @@ export class SiteBucketS3Stack extends cdk.Stack {
 
 
         this.bucketAssets = siteBucket;
-        this.cloudfrontOriginAccessIdentity = cloudfrontOriginAccessIdentity;
     }
 }

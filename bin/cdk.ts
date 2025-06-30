@@ -27,7 +27,6 @@ const cloudFrontStack = new CloudFrontStack(app, "CloudFrontStack", domainName,{
         region: process.env.CDK_DEFAULT_REGION
     },
     bucketAssets: siteBucketS3Stack.bucketAssets,
-    api: apiStack.api,
-    cloudfrontOriginAccessIdentity: siteBucketS3Stack.cloudfrontOriginAccessIdentity,
+    api: apiStack.api
 });
 app.synth();
