@@ -8,7 +8,6 @@ import {
     aws_route53_targets, aws_s3,
     Duration
 } from 'aws-cdk-lib';
-
 import {Construct} from 'constructs';
 
 type CloudFrontStackProps = cdk.StackProps & {
@@ -68,7 +67,7 @@ export class CloudFrontStack extends cdk.Stack {
             }
         );
 
-        const apiOrigin = new aws_cloudfront_origins.HttpOrigin(
+        const apiOrigin = new cdk.aws_cloudfront_origins.HttpOrigin(
             `${props.api.restApiId}.execute-api.${cdk.Aws.REGION}.${cdk.Aws.URL_SUFFIX}`,
             {
                 originPath: `/${props.api.deploymentStage.stageName}`,
@@ -85,7 +84,7 @@ export class CloudFrontStack extends cdk.Stack {
                 domainNames: [domainName],
                 defaultRootObject: "index.html",
                 defaultBehavior: {
-                    origin: new cdk.aws_cloudfront_origins.S3BucketOrigin(props.bucketAssets, {
+                    origin: new aws_cloudfront_origins.S3BucketOrigin(props.bucketAssets, {
                         originAccessIdentity: props.cloudfrontOriginAccessIdentity,
                     }),
                     viewerProtocolPolicy:
