@@ -3,10 +3,12 @@ import {
     aws_apigateway,
     aws_certificatemanager,
     aws_cloudfront,
+    aws_cloudfront_origins,
     aws_route53,
     aws_route53_targets, aws_s3,
     Duration
 } from 'aws-cdk-lib';
+
 import {Construct} from 'constructs';
 
 type CloudFrontStackProps = cdk.StackProps & {
@@ -66,7 +68,7 @@ export class CloudFrontStack extends cdk.Stack {
             }
         );
 
-        const apiOrigin = new cdk.aws_cloudfront_origins.HttpOrigin(
+        const apiOrigin = new aws_cloudfront_origins.HttpOrigin(
             `${props.api.restApiId}.execute-api.${cdk.Aws.REGION}.${cdk.Aws.URL_SUFFIX}`,
             {
                 originPath: `/${props.api.deploymentStage.stageName}`,
